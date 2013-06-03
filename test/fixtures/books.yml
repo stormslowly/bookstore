@@ -7,7 +7,7 @@
 one:
   id: 1
   title: ruby on rails for rookies
-  admin_publisher_id: 1
+  publisher_id: 2
   published_at: <%= Time.now.strfttime("%Y-%m-%d")
   isbn: 199-199-199-1
 
@@ -17,7 +17,7 @@ one:
 two:
   id: 2
   title: ruby on rails advanced
-  admin_publisher_id: 2
+  publisher_id: 2
   published_at: <%= Time.now.strfttime("%Y-%m-%d")
-
+  isbn: 199-199-199-2
 #  column: value

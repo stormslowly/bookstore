@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20130602154359) do
   end
 
   create_table "admin_authors_books", id: false, force: true do |t|
-    t.integer "admin_author_id", null: false
-    t.integer "book_id",         null: false
+    t.integer "author_id", null: false
+    t.integer "book_id",   null: false
   end
 
   create_table "admin_publishers", force: true do |t|
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20130602154359) do
   end
 
   create_table "books", force: true do |t|
-    t.string   "title",                         null: false
-    t.integer  "admin_publisher_id",            null: false
+    t.string   "title",                   null: false
+    t.integer  "publisher_id",            null: false
     t.datetime "published_at"
-    t.string   "isbn",               limit: 13
+    t.string   "isbn",         limit: 13
     t.text     "blurb"
     t.integer  "page_counter"
     t.float    "price"
