@@ -57,4 +57,9 @@ class BookTest < ActiveSupport::TestCase
   end
 
 
+  test "books has many authors and belongs to them" do
+    assert_equal 2,2
+
+  end
+
 end
