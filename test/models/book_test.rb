@@ -60,6 +60,24 @@ class BookTest < ActiveSupport::TestCase
   test "books has many authors and belongs to them" do
     assert_equal 2,2
 
+    book_has_two_authors = Book.new(:title=>'RoR E-commerce',
+                    :publisher=> Admin::Publisher.find(2),
+                    :authors => [ Admin::Author.find(2),
+                                  Admin::Author.find(1)],
+                    :published_at => Time.now,
+                    :isbn => '201-201-211-x',
+                    :blurb => 'you will love this book',
+                    :page_counter => 445,
+                    :price => 400)
+
+    assert book_has_two_authors.save
+
+    book_has_two_authors.reload
+
+    assert_equal 2,book_has_two_authors.authors.size
+
+    assert Admin::Author.find(1).books.find(book_has_two_authors.id)
+
   end
 
 end
