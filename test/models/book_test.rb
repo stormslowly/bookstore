@@ -50,19 +50,9 @@ class BookTest < ActiveSupport::TestCase
     apress.reload
     new_book.reload
 
-    #new_book.save()
-    #assert_equal true, new_book.id!=nil
-    assert_equal 3, new_book.id
-
-
-    apress.reload
 
     assert_equal 3, apress.books.size
-
-
-
-
-
+    assert_equal 'Apress', new_book.publisher.name
 
   end
 
