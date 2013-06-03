@@ -33,7 +33,7 @@ class BookTest < ActiveSupport::TestCase
 
   end
 
-  test "book has many and belongs to " do
+  test "book belongs to publisher and publisher has many books" do
     apress = Admin::Publisher.find_by_name("Apress")
     assert_equal 2, apress.books.size
 
@@ -55,5 +55,6 @@ class BookTest < ActiveSupport::TestCase
     assert_equal 'Apress', new_book.publisher.name
 
   end
+
 
 end
