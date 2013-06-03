@@ -2,9 +2,13 @@
 first_book_autor_1:
   book_id:   1
   author_id: 1
-#
-#first_book_autor_2:
-#  book_id: 1
-#  author_id: 2
 
+first_book_autor_2:
+  book_id: 1
+  author_id: 2
+
+
+second_book_author:
+  book_id: 2
+  author_id: 2
 
