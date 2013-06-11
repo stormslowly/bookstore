@@ -1,4 +1,6 @@
 Bookstore::Application.routes.draw do
+  resources :books
+
   namespace :admin do
     resources :publishers
   end
