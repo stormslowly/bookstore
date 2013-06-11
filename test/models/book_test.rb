@@ -77,6 +77,9 @@ class BookTest < ActiveSupport::TestCase
     assert_equal 2,book_has_two_authors.authors.size
 
     assert Admin::Author.find(1).books.find(book_has_two_authors.id)
+    assert Admin::Author.find(2).books.find(book_has_two_authors.id)
+
+
 
   end
 
