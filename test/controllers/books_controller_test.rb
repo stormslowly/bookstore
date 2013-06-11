@@ -18,7 +18,16 @@ class BooksControllerTest < ActionController::TestCase
 
   test "should create book" do
     assert_difference('Book.count') do
-      post :create, book: {  }
+      post :create, book: { :title =>'test book',
+                            :publisher_id => 2 ,
+                            :author_ids=>[ 1 ],
+                            :published_at => Time.now,
+                            :isbn=> '777-000-999-1',
+                            :blurb=> 'this is a blurb',
+                            :page_counter => 77,
+                            :price => 66
+                          }
+
     end
 
     assert_redirected_to book_path(assigns(:book))
@@ -35,8 +44,22 @@ class BooksControllerTest < ActionController::TestCase
   end
 
   test "should update book" do
-    patch :update, id: @book, book: {  }
+    patch :update, id:  @book.id, book:{ :title =>'test book',
+                                         :publisher_id => 1 ,
+                                         :author_ids =>[ 1,2],
+                                         :published_at => Time.now,
+                                         :blurb=> 'this is a blurb',
+                                         :page_counter => 77,
+                                         :price => 66
+                                        }
+
     assert_redirected_to book_path(assigns(:book))
+
+    @book.reload
+
+    assert_equal 1 ,@book.publisher.id
+    assert_equal 2, @book.authors.size
+
   end
 
   test "should destroy book" do

@@ -3,7 +3,6 @@ require 'test_helper'
 class Admin::AuthorsControllerTest < ActionController::TestCase
   setup do
     @admin_author = admin_authors(:one)
-    #@admin_author = Admin::Author.new :first_name=>"first_name",:last_name=>"last_name"
   end
 
   test "should get index" do
