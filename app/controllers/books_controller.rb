@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :load_data, only: [:new,:edit]
 
   # GET /books
   # GET /books.json
@@ -62,17 +63,23 @@ class BooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  def load_data
+    @publishers = Admin::Publisher.all
+    @authors = Admin::Author.all
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def book_params
+  # Use callbacks to share common setup or constraints between actions.
+  def set_book
+    @book = Book.find(params[:id])
 
-      params.require(:book).permit(:title, :publisher_id,:published_at,
-                                   :page_counter, :isbn,:price, :blurb,
-                                   author_ids:[])
+  end
 
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def book_params
+
+    params.require(:book).permit(:title, :publisher_id, :published_at,
+                                 :page_counter, :isbn, :price, :blurb,
+                                 author_ids: [])
+
+  end
 end
