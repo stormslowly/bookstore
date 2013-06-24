@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::AuthorsControllerTest < ActionController::TestCase
   setup do
-    @admin_author = admin_authors(:one)
+    @author = authors(:one)
   end
 
   test "should get index" do
@@ -17,40 +17,40 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
   end
 
   test "should create admin_author" do
-    assert_difference('Admin::Author.count') do
-      post :create, admin_author: { first_name: @admin_author.first_name, last_name: @admin_author.last_name }
+    assert_difference('Author.count') do
+      post :create, author: { first_name: @author.first_name, last_name: @author.last_name }
     end
 
-    assert_redirected_to admin_author_path(assigns(:admin_author))
+    assert_redirected_to author_path(assigns(:author))
   end
 
   test "should show admin_author" do
-    get :show, id: @admin_author
+    get :show, id: @author
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @admin_author
+    get :edit, id: @author
     assert_response :success
   end
 
   test "should update admin_author" do
-    patch :update, id: @admin_author, admin_author: { first_name: @admin_author.first_name, last_name: @admin_author.last_name }
-    assert_redirected_to admin_author_path(assigns(:admin_author))
+    patch :update, id: @author, author: { first_name: @author.first_name, last_name: @author.last_name }
+    assert_redirected_to author_path(assigns(:author))
   end
 
   test "should destroy admin_author" do
-    assert_difference('Admin::Author.count', -1) do
-      delete :destroy, id: @admin_author
+    assert_difference('Author.count', -1) do
+      delete :destroy, id: @author
     end
 
-    assert_redirected_to admin_authors_path
+    assert_redirected_to authors_path
   end
 
   test "bad create request" do
 
-    assert_no_difference('Admin::Author.count') do
-      post :create , admin_author: { first_name: "just_first_name"}
+    assert_no_difference('Author.count') do
+      post :create , author: { first_name: "just_first_name"}
     end
 
     assert_response :success

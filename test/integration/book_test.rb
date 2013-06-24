@@ -29,7 +29,7 @@ class BookTest < ActionDispatch::IntegrationTest
     attr_writer :name
 
     def add_book(parameters)
-      post "/books" ,parameters
+      post '/books',parameters
 
       assert_response :redirect
       follow_redirect!

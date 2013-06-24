@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BooksControllerTest < ActionController::TestCase
+class Admin::BooksControllerTest < ActionController::TestCase
   setup do
     @book = books(:one)
   end
