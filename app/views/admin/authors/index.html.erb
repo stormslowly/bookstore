@@ -17,7 +17,7 @@
         <td><%= admin_author.first_name %></td>
         <td><%= admin_author.last_name %></td>
         <td><%= link_to 'Show', admin_author %></td>
-        <td><%= link_to 'Edit', edit_admin_author_path(admin_author) %></td>
+        <td><%= link_to 'Edit', edit_author_path(admin_author) %></td>
         <td><%= link_to 'Destroy', admin_author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Author', new_admin_author_path %>
+<%= link_to 'New Author', new_author_path %>

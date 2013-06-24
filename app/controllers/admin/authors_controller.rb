@@ -4,7 +4,7 @@ class Admin::AuthorsController < ApplicationController
   # GET /admin/authors
   # GET /admin/authors.json
   def index
-    @admin_authors = Admin::Author.all
+    @admin_authors = Author.all
   end
 
   # GET /admin/authors/1
@@ -14,7 +14,7 @@ class Admin::AuthorsController < ApplicationController
 
   # GET /admin/authors/new
   def new
-    @admin_author = Admin::Author.new
+    @admin_author = Author.new
   end
 
   # GET /admin/authors/1/edit
@@ -24,7 +24,7 @@ class Admin::AuthorsController < ApplicationController
   # POST /admin/authors
   # POST /admin/authors.json
   def create
-    @admin_author = Admin::Author.new(admin_author_params)
+    @admin_author = Author.new(admin_author_params)
 
     respond_to do |format|
       if @admin_author.save
@@ -56,7 +56,7 @@ class Admin::AuthorsController < ApplicationController
   def destroy
     @admin_author.destroy
     respond_to do |format|
-      format.html { redirect_to admin_authors_url }
+      format.html { redirect_to authors_url }
       format.json { head :no_content }
     end
   end
@@ -64,11 +64,11 @@ class Admin::AuthorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_author
-      @admin_author = Admin::Author.find(params[:id])
+      @admin_author = Author.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_author_params
-      params.require(:admin_author).permit(:first_name, :last_name)
+      params.require(:author).permit(:first_name, :last_name)
     end
 end
