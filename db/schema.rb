@@ -13,22 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20130602154359) do
 
-  create_table "admin_authors", force: true do |t|
+  create_table "authors", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "admin_authors_books", id: false, force: true do |t|
+  create_table "authors_books", id: false, force: true do |t|
     t.integer "author_id", null: false
     t.integer "book_id",   null: false
-  end
-
-  create_table "admin_publishers", force: true do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "books", force: true do |t|
@@ -39,6 +33,12 @@ ActiveRecord::Schema.define(version: 20130602154359) do
     t.text     "blurb"
     t.integer  "page_counter"
     t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "publishers", force: true do |t|
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

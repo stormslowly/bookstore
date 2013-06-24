@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
-  has_and_belongs_to_many :authors, :class_name => 'Admin::Author'
-  belongs_to :publisher, :class_name => 'Admin::Publisher'
+  has_and_belongs_to_many :authors, :class_name => 'Author'
+  belongs_to :publisher, :class_name => 'Publisher'
 
   validates_presence_of :authors
   validates_presence_of :publisher

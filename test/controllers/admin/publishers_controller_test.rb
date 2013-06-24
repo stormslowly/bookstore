@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::PublishersControllerTest < ActionController::TestCase
   setup do
-    @admin_publisher = admin_publishers(:one)
+    @publisher = publishers(:one)
   end
 
   test "should get index" do
@@ -17,33 +17,33 @@ class Admin::PublishersControllerTest < ActionController::TestCase
   end
 
   test "should create admin_publisher" do
-    assert_difference('Admin::Publisher.count') do
-      post :create, admin_publisher: { name: "just a new  press" }
+    assert_difference('Publisher.count') do
+      post :create, publisher: { name: "just a new  press" }
     end
 
-    assert_redirected_to admin_publisher_path(assigns(:admin_publisher))
+    assert_redirected_to publisher_path(assigns(:publisher))
   end
 
   test "should show admin_publisher" do
-    get :show, id: @admin_publisher
+    get :show, id: @publisher
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @admin_publisher
+    get :edit, id: @publisher
     assert_response :success
   end
 
   test "should update admin_publisher" do
-    patch :update, id: @admin_publisher, admin_publisher: { name: @admin_publisher.name }
-    assert_redirected_to admin_publisher_path(assigns(:admin_publisher))
+    patch :update, id: @publisher, publisher: { name: @publisher.name }
+    assert_redirected_to publisher_path(assigns(:publisher))
   end
 
   test "should destroy admin_publisher" do
     assert_difference('Admin::Publisher.count', -1) do
-      delete :destroy, id: @admin_publisher
+      delete :destroy, id: @publisher
     end
 
-    assert_redirected_to admin_publishers_path
+    assert_redirected_to publishers_path
   end
 end

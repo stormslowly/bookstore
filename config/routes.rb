@@ -1,9 +1,12 @@
 Bookstore::Application.routes.draw do
-  resources :books
-
   namespace :admin do
-    resources :publishers
+    resources :books
   end
+
+
+    resources :publishers,:controller => "admin/publishers",:path=>"/admin/publishers"
+  #, path: "admin/publishers"
+
 
   namespace :admin do
     resources :authors

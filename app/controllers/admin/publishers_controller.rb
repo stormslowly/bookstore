@@ -4,7 +4,7 @@ class Admin::PublishersController < ApplicationController
   # GET /admin/publishers
   # GET /admin/publishers.json
   def index
-    @admin_publishers = Admin::Publisher.all
+    @admin_publishers = Publisher.all
   end
 
   # GET /admin/publishers/1
@@ -14,7 +14,7 @@ class Admin::PublishersController < ApplicationController
 
   # GET /admin/publishers/new
   def new
-    @admin_publisher = Admin::Publisher.new
+    @admin_publisher = Publisher.new
   end
 
   # GET /admin/publishers/1/edit
@@ -24,7 +24,7 @@ class Admin::PublishersController < ApplicationController
   # POST /admin/publishers
   # POST /admin/publishers.json
   def create
-    @admin_publisher = Admin::Publisher.new(admin_publisher_params)
+    @admin_publisher = Publisher.new(admin_publisher_params)
 
     respond_to do |format|
       if @admin_publisher.save
@@ -56,7 +56,7 @@ class Admin::PublishersController < ApplicationController
   def destroy
     @admin_publisher.destroy
     respond_to do |format|
-      format.html { redirect_to admin_publishers_url }
+      format.html { redirect_to publishers_url }
       format.json { head :no_content }
     end
   end
@@ -64,11 +64,11 @@ class Admin::PublishersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_publisher
-      @admin_publisher = Admin::Publisher.find(params[:id])
+      @admin_publisher = Publisher.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_publisher_params
-      params.require(:admin_publisher).permit(:name)
+      params.require(:publisher).permit(:name)
     end
 end
