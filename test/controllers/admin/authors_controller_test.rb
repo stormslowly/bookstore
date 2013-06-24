@@ -5,18 +5,18 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
     @author = authors(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:admin_authors)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create admin_author" do
+  test 'should create author' do
     assert_difference('Author.count') do
       post :create, author: { first_name: @author.first_name, last_name: @author.last_name }
     end
@@ -24,17 +24,17 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
     assert_redirected_to author_path(assigns(:author))
   end
 
-  test "should show admin_author" do
+  test 'should show admin_author' do
     get :show, id: @author
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @author
     assert_response :success
   end
 
-  test "should update admin_author" do
+  test 'should update author' do
     patch :update, id: @author, author: { first_name: @author.first_name, last_name: @author.last_name }
     assert_redirected_to author_path(assigns(:author))
   end
