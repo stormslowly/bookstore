@@ -1,11 +1,11 @@
-class BooksController < ApplicationController
+class Admin::BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :load_data, only: [:new,:edit]
 
   # GET /books
   # GET /books.json
   def index
-    @books = Admin::Book.all
+    @books = Book.all
   end
 
   # GET /books/1
@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Admin::Book.new
+    @book = Book.new
   end
 
   # GET /books/1/edit
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Admin::Book.new(book_params)
+    @book = Book.new(book_params)
 
     respond_to do |format|
       if @book.save
@@ -64,20 +64,20 @@ class BooksController < ApplicationController
 
   private
   def load_data
-    @publishers = Admin::Publisher.all
-    @authors = Admin::Author.all
+    @publishers = Publisher.all
+    @authors = Author.all
   end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_book
-    @book = Admin::Book.find(params[:id])
+    @book = Book.find(params[:id])
 
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def book_params
 
-    params.require(:book).permit(:title, :admin_publisher_id, :published_at,
+    params.require(:book).permit(:title, :publisher_id, :published_at,
                                  :page_counter, :isbn, :price, :blurb,
                                  author_ids: [])
 

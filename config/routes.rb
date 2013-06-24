@@ -1,12 +1,13 @@
 Bookstore::Application.routes.draw do
-  namespace :admin do
-    resources :books
-  end
+
+
+  resources :books ,:controller => 'admin/books',:path=>'admin/books'
 
 
   resources :publishers, :controller => 'admin/publishers', :path => '/admin/publishers'
 
   resources :authors, :controller => 'admin/authors', :path => '/admin/authors'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
