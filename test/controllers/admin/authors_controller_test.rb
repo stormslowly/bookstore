@@ -21,7 +21,7 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
       post :create, author: { first_name: @author.first_name, last_name: @author.last_name }
     end
 
-    assert_redirected_to author_path(assigns(:author))
+    assert_redirected_to author_path(assigns(:admin_author))
   end
 
   test 'should show admin_author' do
@@ -36,10 +36,10 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
 
   test 'should update author' do
     patch :update, id: @author, author: { first_name: @author.first_name, last_name: @author.last_name }
-    assert_redirected_to author_path(assigns(:author))
+    assert_redirected_to author_path(assigns(:admin_author))
   end
 
-  test "should destroy admin_author" do
+  test 'should destroy admin_author' do
     assert_difference('Author.count', -1) do
       delete :destroy, id: @author
     end
@@ -47,7 +47,7 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
     assert_redirected_to authors_path
   end
 
-  test "bad create request" do
+  test 'bad create request' do
 
     assert_no_difference('Author.count') do
       post :create , author: { first_name: "just_first_name"}

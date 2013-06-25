@@ -21,7 +21,7 @@ class Admin::PublishersControllerTest < ActionController::TestCase
       post :create, publisher: { name: 'just a new  press'}
     end
 
-    assert_redirected_to publisher_path(assigns(:publisher))
+    assert_redirected_to publisher_path(assigns(:admin_publisher))
   end
 
   test 'should show admin publisher' do
@@ -36,7 +36,7 @@ class Admin::PublishersControllerTest < ActionController::TestCase
 
   test 'should update admin publisher' do
     patch :update, id: @publisher, publisher: { name: @publisher.name }
-    assert_redirected_to publisher_path(assigns(:publisher))
+    assert_redirected_to publisher_path(assigns(:admin_publisher))
   end
 
   test 'should destroy admin publisher' do
