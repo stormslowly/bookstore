@@ -1,6 +1,6 @@
 class Admin::BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :load_data, only: [:new,:edit]
+  before_action :load_data, only: [:new,:edit,:create]
 
   # GET /books
   # GET /books.json
@@ -64,7 +64,7 @@ class Admin::BooksController < ApplicationController
 
   private
   def load_data
-    @publishers = Publisher.all
+    @publishers = Publisher.find(:all)
     @authors = Author.all
   end
 
@@ -79,7 +79,9 @@ class Admin::BooksController < ApplicationController
 
     params.require(:book).permit(:title, :publisher_id, :published_at,
                                  :page_counter, :isbn, :price, :blurb,
-                                 author_ids: [])
+                                 :cover_image,
+                                 author_ids: [],
+                                )
 
   end
 end

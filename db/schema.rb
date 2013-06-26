@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130602154359) do
+ActiveRecord::Schema.define(version: 20130626155643) do
 
   create_table "authors", force: true do |t|
     t.string   "first_name"
@@ -26,15 +26,19 @@ ActiveRecord::Schema.define(version: 20130602154359) do
   end
 
   create_table "books", force: true do |t|
-    t.string   "title",                   null: false
-    t.integer  "publisher_id",            null: false
+    t.string   "title",                               null: false
+    t.integer  "publisher_id",                        null: false
     t.datetime "published_at"
-    t.string   "isbn",         limit: 13
+    t.string   "isbn",                     limit: 13
     t.text     "blurb"
     t.integer  "page_counter"
     t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   create_table "publishers", force: true do |t|
