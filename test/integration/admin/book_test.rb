@@ -1,11 +1,11 @@
 require 'test_helper'
 
-class BookTest < ActionDispatch::IntegrationTest
+class Admin::BookTest < ActionDispatch::IntegrationTest
 
 
-  test "book administrator" do
-    publisher = Admin::Publisher.create(:name => 'super_house')
-    author = Admin::Author.create(:first_name => 'good', :last_name => 'teacher')
+  test 'book administrator' do
+    publisher = Publisher.create(:name => 'super_house')
+    author = Author.create(:first_name => 'good', :last_name => 'teacher')
 
     bob = new_session_as(:bob)
 
@@ -29,7 +29,7 @@ class BookTest < ActionDispatch::IntegrationTest
     attr_writer :name
 
     def add_book(parameters)
-      post '/books',parameters
+      post '/admin/books',parameters
 
       assert_response :redirect
       follow_redirect!
