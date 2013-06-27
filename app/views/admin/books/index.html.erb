@@ -12,6 +12,7 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
+        <td><%= image_tag book.cover_image.url(:thumb)%></td>
         <td><%= book.title %></td>
         <td><%= book.isbn %></td>
         <td><%= link_to 'Show', book %></td>
