@@ -1,6 +1,7 @@
 Bookstore::Application.routes.draw do
 
 
+  mount Ckeditor::Engine => '/ckeditor'
   resources :books ,:controller => 'admin/books',:path=>'admin/books'
 
 

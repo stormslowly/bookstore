@@ -29,6 +29,9 @@ GEM
     arel (4.0.0)
     atomic (1.1.9)
     builder (3.1.4)
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -63,6 +66,7 @@ GEM
       minitest (>= 2.12, < 5.0)
       powerbar
     multi_json (1.7.4)
+    orm_adapter (0.4.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -132,6 +136,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  ckeditor
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.0.1)
   jquery-rails
