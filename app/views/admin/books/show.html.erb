@@ -4,9 +4,9 @@
 <p>
   <strong>Title:</strong>
   <div><%= @book.title %></div>
-  <div>
-    <%= image_tag @book.cover_image.url() %>
-
+  <%= raw(@book.blurb) %>
+<div>
+    <%= image_tag @book.cover_image.url(:medium) %>
   </div>
 </p>
 
