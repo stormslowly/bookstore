@@ -2,6 +2,9 @@ Bookstore::Application.routes.draw do
 
 
   mount Ckeditor::Engine => '/ckeditor'
+
+  get 'tag/:tag', :to=>'admin/books#index', :as=>:tag
+
   resources :books ,:controller => 'admin/books',:path=>'admin/books'
 
 

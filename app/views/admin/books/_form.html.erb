@@ -56,9 +56,18 @@
       <%= f.text_field :price %>
     </div>
 
+    <div>
+
+    </div>
 
     <div>
-      <%= f.label '束腰' %> <br>
+      <%= f.label :tags %> <br>
+      <%= f.text_field :category_list %>
+    </div>
+
+
+    <div>
+      <%= f.label :description %> <br>
       <%= f.cktext_area :blurb , :class=>'ckeditor'%>
     </div>
 

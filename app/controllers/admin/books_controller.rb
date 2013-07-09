@@ -5,7 +5,12 @@ class Admin::BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    if params[:tag]
+      @books = Book.tagged_with params[:tag]
+    else
+      @books = Book.all
+    end
+
   end
 
   # GET /books/1
@@ -64,7 +69,7 @@ class Admin::BooksController < ApplicationController
 
   private
   def load_data
-    @publishers = Publisher.find(:all)
+    @publishers = Publisher.all.to_a
     @authors = Author.all
   end
 
@@ -79,7 +84,7 @@ class Admin::BooksController < ApplicationController
 
     params.require(:book).permit(:title, :publisher_id, :published_at,
                                  :page_counter, :isbn, :price, :blurb,
-                                 :cover_image,
+                                 :cover_image,:category_list,
                                  author_ids: [],
                                 )
 
