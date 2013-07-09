@@ -1,4 +1,7 @@
 class Book < ActiveRecord::Base
+  acts_as_taggable
+  acts_as_taggable_on :categories
+
   has_attached_file :cover_image,
                     :styles => {:medium => '300x300>',
                                 :thumb => '100x100>'},
@@ -8,8 +11,6 @@ class Book < ActiveRecord::Base
   has_and_belongs_to_many :authors, :class_name => 'Author'
   belongs_to :publisher, :class_name => 'Publisher'
 
-
-  #validates_attachment_presence :cover_image
   validates_presence_of :authors
   validates_presence_of :publisher
   validates_length_of :title, :in => 1..255

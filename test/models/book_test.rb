@@ -17,7 +17,7 @@ class BookTest < ActiveSupport::TestCase
     assert book.errors[:price]
     assert book.errors[:isbn]
   end
-  test "should success when new with proper parameters" do
+  test 'should success when new with proper parameters' do
     book = Book.new(:title => 'great ruy',
                     :publisher => Publisher.find(1),
                     :authors => Author.all,
@@ -30,10 +30,10 @@ class BookTest < ActiveSupport::TestCase
     assert book
     assert_not_nil book.save!
     assert_equal 3, book.id
-
+    assert_equal [],book.category_list
   end
 
-  test "book belongs to publisher and publisher has many books" do
+  test 'book belongs to publisher and publisher has many books' do
     apress = Publisher.find_by_name("Apress")
     assert_equal 2, apress.books.size
 
@@ -57,7 +57,7 @@ class BookTest < ActiveSupport::TestCase
   end
 
 
-  test "books has many authors and belongs to them" do
+  test 'books has many authors and belongs to them' do
     assert_equal 2,2
 
     book_has_two_authors = Book.new(:title=>'RoR E-commerce',
@@ -78,9 +78,7 @@ class BookTest < ActiveSupport::TestCase
 
     assert Author.find(1).books.find(book_has_two_authors.id)
     assert Author.find(2).books.find(book_has_two_authors.id)
-
-
-
   end
+
 
 end
