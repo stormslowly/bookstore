@@ -6,6 +6,7 @@ class Admin::BooksController < ApplicationController
   # GET /books.json
   def index
     if params[:tag]
+      @tag = params[:tag]
       @books = Book.tagged_with params[:tag]
     else
       @books = Book.all
