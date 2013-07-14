@@ -1,6 +1,6 @@
 class Admin::PublishersController < ApplicationController
   before_action :set_admin_publisher, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_title
   # GET /admin/publishers
   # GET /admin/publishers.json
   def index
@@ -70,5 +70,9 @@ class Admin::PublishersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_publisher_params
       params.require(:publisher).permit(:name)
+    end
+
+    def set_title
+      @title = 'Publisher Admin'
     end
 end
