@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-
 <p>
   <strong>Title:</strong>
-  <div><%= @book.title %></div>
-  <p>
-    <%= raw @book.category_list.map{ |tag|
-      link_to tag, tag_path(tag)
-    }.join(',')     %>
-  </p>
-  <%= raw(@book.blurb) %>
+<div><%= @book.title %></div>
+<p>
+  <%= raw @book.category_list.map { |tag|
+    link_to tag, tag_path(tag)
+  }.join(',') %>
+</p>
+<%= raw(@book.blurb) %>
 <div>
-    <%= image_tag @book.cover_image.url(:medium) %>
-  </div>
+  <%= image_tag @book.cover_image.url(:medium) %>
+</div>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

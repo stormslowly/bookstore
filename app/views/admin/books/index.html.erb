@@ -4,32 +4,29 @@
     <strong><%= 'tagged '+ @tag if @tag %></strong>
   </div>
 </div>
+<div class="row">
+  <%= link_to 'New A Book', new_book_path, class: 'btn btn-success' %>
+</div>
 
-<%= link_to 'Add a New Book', new_book_path, class: 'btn btn-large btn-success' %>
-
-<table>
-  <thead>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
+<div class="row">
   <% @books.each do |book| %>
-      <tr>
-        <td><%= image_tag book.cover_image.url(:thumb) %></td>
-        <td><%= book.title %></td>
-        <td><%= book.isbn %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Delete', book, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
+      <div class="span3 center_in_span">
+        <h3><%= link_to book.title, book %></h3>
+
+        <div>
+          <%= link_to image_tag(book.cover_image.url(:thumb),
+                                class: 'img-rounded book_cover_thumb '),
+                      book %>
+        </div>
+        <div><strong><%= book.isbn %></strong></div>
+        <div>
+          <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-mini' %>
+          <%= link_to 'Delete', book, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-mini btn-danger    ' %>
+        </div>
+      </div>
   <% end %>
-  </tbody>
-</table>
-<%= link_to 'Add a New Book', new_book_path, class: 'btn btn-large btn-success' %>
+</div>
+
 <br>
 
 
