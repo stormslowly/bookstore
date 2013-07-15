@@ -7,3 +7,19 @@
   max-height:100px;
   overflow:hidden;
 }
+
+.books{
+
+}
+
+.books.hover{
+  background-color: #f0f0f0;
+}
+
+.books .admin{
+  display: none;
+}
+
+.books.hover .admin{
+  display: inline-block;
+}

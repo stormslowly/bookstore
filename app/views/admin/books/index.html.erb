@@ -10,7 +10,7 @@
 
 <div class="row">
   <% @books.each do |book| %>
-      <div class="span3 center_in_span">
+      <div class="span3 center_in_span books">
         <h3><%= link_to book.title, book %></h3>
 
         <div>
@@ -19,7 +19,7 @@
                       book %>
         </div>
         <div><strong><%= book.isbn %></strong></div>
-        <div>
+        <div class='admin'>
           <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-mini' %>
           <%= link_to 'Delete', book, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-mini btn-danger    ' %>
         </div>
