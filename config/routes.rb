@@ -1,5 +1,7 @@
 Bookstore::Application.routes.draw do
+  devise_for :users
 
+  root to:'admin/books#index'
 
   mount Ckeditor::Engine => '/ckeditor'
 

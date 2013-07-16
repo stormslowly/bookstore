@@ -29,4 +29,8 @@ Bookstore::Application.configure do
 
 
   Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-6.8.6-Q16'
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
 end
